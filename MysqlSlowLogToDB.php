@@ -6,7 +6,7 @@
  */
 
 $debug = true;
-$slowLogName = './slow.log.2014_12_01';
+$slowLogName = './slow.log.2014_12_05';
 $oneTimeDo = 2000;
 $mysqlConfig = array(
     'host' 		=> '10.1.37.26:5001',
@@ -15,10 +15,10 @@ $mysqlConfig = array(
     'password'	=> '123456',
     'charset'	=> 'utf8',
 );
-$ins = new ImportMysqlSlowToDB($slowLogName, $debug, $oneTimeDo, $mysqlConfig);
+$ins = new MysqlSlowLogToDB($slowLogName, $debug, $oneTimeDo, $mysqlConfig);
 $ins->deal();
 
-class ImportMysqlSlowToDB
+class MysqlSlowLogToDB
 {
     /**
      * 每行读取的字节数据
